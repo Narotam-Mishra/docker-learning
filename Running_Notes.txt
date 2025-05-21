@@ -1,0 +1,14 @@
+
+### Docker Learning
+
+## Docker Learning material - https://drive.google.com/drive/folders/1deQSD0iRrIiaotN-FI5jvruJtj31aNa-
+
+## What is a Docker? (01:38)
+
+# Docker is a containerization platform for developing, packaging, shipping and running applications. It provides the ability to run an application in an isolated environment called a container. It makes deployment and development very efficient.
+
+## Why we need Docker? (02:32)
+
+- Consistency Across Environments
+- Isolation
+
