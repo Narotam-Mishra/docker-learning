@@ -103,3 +103,17 @@
 # In short:
 - Registry = the server/service that stores images.
 - Repository = a set of images (with tags) for a specific project within a registry.
+
+## Creating Demo Project - React Webpp (30:44)
+
+## How to create DockerFile? (38:11)
+
+# Useful commands
+
+# `docker build .` - this command is used to build docker image 
+
+# `docker image ls` - this command is used to list docker image 
+
+## Manage and Running Containers (49:24)
+
+# 
