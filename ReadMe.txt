@@ -197,3 +197,72 @@ Breakdown:
 - Container runs in background
 - Application accessible at http://localhost:5173
 - Terminal remains free for other commands
+
+# Running Multiple Containers - we run multiple container from same docker image by just changing the port number. For example - 1). `docker run -d -p 5173:5173 f5d351fba0fc` will run the docker container on port 5173,
+2). `docker run -d -p 5175:5173 f5d351fba0fc` will run the docker container on port 5175,
+3). `docker run -d -p 5177:5173 f5d351fba0fc` will run the docker container on port 5177,
+
+## Useful Info for Containers (01:02:25)
+
+# `docker ps -a` - this command used to show list of all available container whereas `docker ps` command used to show only running container.
+
+# Command to run docker image (in detached mode and will be removed once we stop) :- `docker run -d --rm -p 5173:5173 f5d351fba0fc`
+
+# --rm flag will automatically deletes the container when it stops running. It prevents accumulation of stopped containers and keeps your system clean
+
+# Above command breakdown :-
+==> -d: Detached mode (runs in background)
+==> --rm: Auto-remove container when it stops
+==> -p 5173:5173: Port mapping
+==> f5d351fba0fc: Image ID
+
+Q. How to give custom name to docker container? 
+# Using this command `docker run -d --rm --name "reactwebapp" -p 5173:5173 f5d351fba0fc`
+
+# Above command runs a Docker container with the following configuration :-
+
+-d: Runs in background (detached mode)
+--rm: Automatically deletes the container when it stops
+--name "reactwebapp": Names the container "reactwebapp" for easy reference
+-p 5173:5173: Maps port 5173 from your computer to port 5173 inside the container
+f5d351fba0fc: Uses the Docker image with this ID
+
+Result: Creates a background container named "reactwebapp" that's accessible at localhost:5173 and will automatically clean itself up when stopped.
+
+## Managing Docker Images (1:06:36)
+
+Q. How to give custom name to docker image?
+# using this command - `docker build -t myreactapp:01 .`
+
+# Above command builds a Docker image with the following configuration :-
+
+# `docker build`:- Creates a Docker image from a Dockerfile
+# `-t myreactapp:01`:- Tags the image with name "myreactapp" and version "01"
+# `.` :- Uses the current directory as the build context (where Dockerfile is located)
+
+# Result: Creates a Docker image named "myreactapp:01" from the Dockerfile in the current directory, which can then be used to run containers.
+
+# Comamnd  - `docker build -t myreactapp:02 .`
+
+# Above command builds a Docker image with the following configuration :-
+
+# `docker build` :- Creates a Docker image from a Dockerfile
+# `-t myreactapp:02` :- Tags the image with name "myreactapp" and version "02"
+# `.` :- Uses the current directory as the build context
+
+# Key Difference :-
+- myreactapp:01 creates version "01" of the image
+- myreactapp:02 creates version "02" of the same image
+
+Q. How to delete docker image?
+# using command - `docker rmi myreactapp:02`
+
+# Above command removes a Docker image:
+
+# `docker rmi` :- Removes (deletes) a Docker image
+# `myreactapp:02` :- Specifies the image name and tag to delete
+
+# Result: Permanently deletes the "myreactapp:02" image from your local Docker storage, freeing up disk space. The image will no longer appear in docker images list.
+Note: You cannot remove an image if containers are currently using it - you must stop and remove those containers first.
+
+# What If We update Project ?
