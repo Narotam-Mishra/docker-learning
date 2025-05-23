@@ -110,10 +110,90 @@
 
 # Useful commands
 
-# `docker build .` - this command is used to build docker image 
+# `docker build .` - this command is used to build docker image in root directory 
 
 # `docker image ls` - this command is used to list docker image 
 
 ## Manage and Running Containers (49:24)
 
-# 
+# `docker stop determined_lichterman` - this command gracefully stops a running container. `determined_lichterman` is docker container name
+
+# `docker ps` - this command lists all currently running containers in docker.
+
+# Command to run docker image (in attach mode) :- `docker run -p 5173:5173 f5d351fba0fc`
+
+# Command Breakdown
+
+==> `docker run`
+
+# Purpose:- Creates and starts a new container from a Docker image
+
+# Action: This is the main command to execute a Docker container
+
+===> `-p 5173:5173`
+
+# Flag: -p (or --publish) is used for port mapping/forwarding
+
+# Format: -p HOST_PORT:CONTAINER_PORT
+Breakdown:
+
+# First 5173: Port on your host machine (your computer)
+
+#Second 5173: Port inside the Docker container
+
+# Function: Maps port 5173 on your local machine to port 5173 inside the container
+
+# Result: When you access localhost:5173 in your browser, traffic gets forwarded to port 5173 inside the container
+
+==> `f5d351fba0fc`
+
+# Type: Docker image ID (shortened form)
+
+# Full form: This is likely a truncated version of a longer hash like f5d351fba0fc1a2b3c4d5e6f7a8b9c0d1e2f3a4b
+
+# Purpose: Identifies which Docker image to use for creating the container
+
+# What happens when you run this command :- `docker run -p 5173:5173 f5d351fba0fc`
+
+1). Container Creation:- Docker creates a new container from image `f5d351fba0fc`
+
+2). Port Binding:- Sets up port forwarding from your machine's port 5173 to the container's port 5173
+
+3). Container Start:- Starts the container and runs the default command (in your case, npm run dev)
+
+4). Network Access:- Oour react application becomes accessible at http://localhost:5173
+
+# Running Container In Detached Mode :- Suppose we want to run our docker container in background and terminal shouldn't be block due to this then we should prefer running container in detached mode.
+
+# Benefits of running container in detached mode :-
+1). Terminal Freedom :- Our terminal remains free to run other commands immediately.
+
+2). Background Services :- Perfect for running services that should continue running in the background.
+
+3). Session Independence :- It prevents accidental container shutdown when terminal disconnects.
+
+4). Production Deployments :- It allows automation scripts to start containers without hanging
+
+## When to Use Each Mode ?
+
+# Use Attached Mode when:
+- Debugging: You need to see real-time logs
+- Development: Interactive debugging sessions
+- One-time tasks: Scripts or commands that run once and exit
+- Learning: Understanding what the application is doing.
+
+# Use Detached Mode when:
+- Production services: Web servers, APIs, databases
+- Long-running processes: Background workers, schedulers
+- Multiple containers: Running several containers simultaneously
+- CI/CD pipelines: Automated deployments
+
+# Command to run docker image (in detached mode) :- `docker run -d -p 5173:5173 f5d351fba0fc`
+
+# Identifies flags: -d (detached) and -p 5173:5173 (port mapping)
+
+# When we run docker container in detached mode (using above command) :-
+- Container ID returned immediately
+- Container runs in background
+- Application accessible at http://localhost:5173
+- Terminal remains free for other commands
