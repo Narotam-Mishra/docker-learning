@@ -300,4 +300,5 @@ Q. What If We update Project ?
 
 ## How to Pull Images remotely (01:35:43)
 
-# 
+# We can docker image using command - `docker pull dockernaru99/basic-react-webapp:01`
+
