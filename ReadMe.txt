@@ -302,3 +302,19 @@ Q. What If We update Project ?
 
 # We can docker image using command - `docker pull dockernaru99/basic-react-webapp:01`
 
+## Docke Volume (1:38:21)
+
+# A Docker volume is a persistent storage mechanism that exists outside of container lifecycles. Unlike container filesystems that disappear when containers are removed, volumes persist data independently.
+
+# Key characteristics :-
+- Stored in Docker-managed locations on the host
+- Shared between containers
+- Persist even after containers are deleted
+- Managed by Docker (not directly accessible via host filesystem paths)
+
+# Common use cases:
+1). Database storage - Keep database files persistent across container restarts and updates. Without volumes, all database data would be lost when the container stops.
+2). Configuration sharing - Share config files between multiple containers or between host and containers.
+3). Development workflows - Mount source code directories so changes are immediately reflected without rebuilding containers.
+4). Backup and migration - Easily backup, restore, or move data between different environments.
+5). Log storage - Persist application logs outside containers for monitoring and debugging.
