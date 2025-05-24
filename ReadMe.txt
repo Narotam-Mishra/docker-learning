@@ -265,4 +265,39 @@ Q. How to delete docker image?
 # Result: Permanently deletes the "myreactapp:02" image from your local Docker storage, freeing up disk space. The image will no longer appear in docker images list.
 Note: You cannot remove an image if containers are currently using it - you must stop and remove those containers first.
 
-# What If We update Project ?
+Q. What If We update Project ?
+# If there is any update in the app then we can re-build the docker image and run the container.
+
+# Pre-defined Docker Images :- We can check predefined docker images on Docker Hub (https://hub.docker.com/)
+
+# pull python image - `docker pull python`
+
+# pull nginx image - `docker pull nginx`
+
+## Running Docker Container With Interactive mode (1:21:20)
+
+# `docker run -it e7b63396cd33`
+
+# Above command runs a Docker container interactively:
+
+# `docker run` - starts a new container from an image
+# `-it` - combines two flags:
+
+# `-i` keeps STDIN open for interaction
+# `-t` allocates a pseudo-TTY terminal
+
+
+# `e7b63396cd33` - the image ID or tag to run
+
+# The result is an interactive terminal session inside the container, allowing you to execute commands directly within it.
+
+# Sharing Docker Images to Docker Hub 
+1). Create a Docker Hub Account
+2). Log in to Docker Hub from Terminal :- using command `docker login`
+3). Tag Your Image :- Your image needs to follow Docker Hub's naming convention using command `docker tag dockernaru99/basic-react-webapp:01`
+4). Push the Image using command `docker push dockernaru99/basic-react-webapp:01`
+5). Verify the Upload :- Go to hub.docker.com and log into your account and check that your repository appears in your repositories list
+
+## How to Pull Images remotely (01:35:43)
+
+# 
