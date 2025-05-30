@@ -1,7 +1,8 @@
-FROM python:3.11-slim
+FROM python
 
 WORKDIR /myapp
 
-COPY ./fileOp.py .
+COPY ./fileRead.py .
+COPY ./server.txt .
 
-CMD ["python", "fileOp.py"]
+CMD ["python", "fileRead.py"]

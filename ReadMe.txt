@@ -318,3 +318,27 @@ Q. What If We update Project ?
 3). Development workflows - Mount source code directories so changes are immediately reflected without rebuilding containers.
 4). Backup and migration - Easily backup, restore, or move data between different environments.
 5). Log storage - Persist application logs outside containers for monitoring and debugging.
+
+## Mount Binds in Docker (01:50:01)
+
+Q. What are Bind Mounts?
+# Bind mounts are a way to directly map a directory or file from the host machine into a container. Unlike Docker volumes, bind mounts use the absolute path of the host filesystem.
+
+# Key characteristics of Bind Mounts :-
+- The host directory/file is mounted directly into the container
+- Changes made in the container are immediately reflected on the host (and vice versa)
+- The host path must exist before mounting
+- Uses the -v or --mount flag with absolute paths
+
+# Command to mount bind - `docker run -v C:/Users/Narotam/Desktop/docker_learning/python-demo-project/server.txt:/myapp/server.txt --rm c4ba6fe4560f`
+
+# Above command demonstrates a file-level bind mount for sharing a specific configuration or data file between host and container.
+
+# What it does:
+- Mounts the host file server.txt from the Windows desktop into the container at /myapp/server.txt
+-  Runs container c4ba6fe4560f with --rm flag (auto-removes container after execution)
+
+# Use case:
+- Configuration sharing :- The server.txt likely contains server settings, connection strings, or application config
+- Live updates :- Changes to the host file immediately reflect in the running container
+- Development/testing :- Quickly test different configurations without rebuilding the image

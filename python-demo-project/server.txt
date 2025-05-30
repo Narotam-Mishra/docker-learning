@@ -1,0 +1,7 @@
+Apache
+Tomcat
+Weblogic
+Oracle Fusion
+Klendy
+Platey
+Hello Server!!
