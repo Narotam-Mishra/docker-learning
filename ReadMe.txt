@@ -342,3 +342,44 @@ Q. What are Bind Mounts?
 - Configuration sharing :- The server.txt likely contains server settings, connection strings, or application config
 - Live updates :- Changes to the host file immediately reflect in the running container
 - Development/testing :- Quickly test different configurations without rebuilding the image
+
+Q. What is .dockerignore?
+# `.dockerignore` is a file that tells Docker which files and directories to exclude when building a Docker image context.
+
+# Purpose of `.dockerignore`:-
+- Reduces build context size and speeds up builds
+- Prevents sensitive files from being copied into images
+- Excludes unnecessary files that don't belong in the container
+
+# How it works:
+- Place .dockerignore in the same directory as your Dockerfile
+- Uses glob patterns similar to .gitignore
+- Applied before any COPY or ADD commands in Dockerfile
+
+# Communication From/To Containers :-
+- From Container to Application
+- From Local Machine DB to Container
+- From Container to Container
+
+## Working with APIs (02:01:47)
+
+# If we are using any third by package or library to make API call then we nee dto install that package or library in container by specifying the install command.
+
+## Container with Local DB (02:05:58)
+
+# Communication Container & Local DB 
+
+# We can't connect to DB using `localhost` as host instead we need to use `host.docker.internal`
+
+# host.docker.internal is a special DNS name that resolves to the host machine's IP address from within a Docker container.
+
+# Main use cases:
+- Accessing host services :- When our containerized app needs to connect to services running on the host machine (like databases, APIs, or development servers)
+- Development workflows :- Common in local development when we want a container to talk to services running directly on your laptop/desktop
+- Cross-platform compatibility :- Works consistently across Windows, macOS, and Linux Docker Desktop,
+
+# Example: If we have a web app in a container that needs to connect to a MySQL database running on your host machine, we'd use `host.docker.internal:3306` instead of `localhost:3306`.
+
+# Note: This is primarily for Docker Desktop. On Linux with Docker Engine, you might need to use the actual host IP or add --add-host=host.docker.internal:host-gateway to your docker run command.
+
+# Communication between Containers :

@@ -2,7 +2,8 @@ FROM python
 
 WORKDIR /myapp
 
-COPY ./fileRead.py .
-COPY ./server.txt .
+COPY ./sql_demo.py .
 
-CMD ["python", "fileRead.py"]
+RUN pip install pymysql
+
+CMD ["python", "sql_demo.py"]
