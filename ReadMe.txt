@@ -387,3 +387,21 @@ Q. What is .dockerignore?
 # Communication between Containers :
 
 # Command  - `docker run -d --env MYSQL_ROOT_PASSWORD="your_db_password" --env MYSQL_DATABASE="demodb"  --name mysqldb mysql`
+
+# Above Docker command creates and runs a MySQL database container:
+# `docker run` - Creates and starts a new container
+# `-d` - Runs in detached mode (background)
+# `--env MYSQL_ROOT_PASSWORD="your_db_password"` - Sets the root user password
+# `--env MYSQL_DATABASE="demodb"` - Creates a database named "demodb" on startup
+# `--name mysqldb` - Names the container "mysqldb"
+# `mysql` - Uses the official MySQL image
+
+# The container runs MySQL in the background with a root password and automatically creates the "demodb" database.
+
+## Creating Docker Network (02:23:28)
+
+# Command to create network in docker :- `docker network create my-net`
+
+# If we are communicating with multiple containers then we can create docker network to run those multiple containers in same network with ease.
+
+# 

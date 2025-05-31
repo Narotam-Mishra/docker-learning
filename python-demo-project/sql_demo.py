@@ -3,7 +3,7 @@ import pymysql
 # function to create a connection to the MySQL DB
 def create_db_connection():
     return pymysql.connect(
-        host="host.docker.internal",      # MySQL server host
+        host="mysqldb",      # MySQL server host
         user="root",           # MySQL username
         password="some_password", # MySQL password
         database="demodb"      # MySQL database name
