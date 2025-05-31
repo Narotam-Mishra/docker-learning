@@ -382,4 +382,8 @@ Q. What is .dockerignore?
 
 # Note: This is primarily for Docker Desktop. On Linux with Docker Engine, you might need to use the actual host IP or add --add-host=host.docker.internal:host-gateway to your docker run command.
 
+## Project with Multiple Containers (02:13:35)
+
 # Communication between Containers :
+
+# Command  - `docker run -d --env MYSQL_ROOT_PASSWORD="your_db_password" --env MYSQL_DATABASE="demodb"  --name mysqldb mysql`
