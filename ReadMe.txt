@@ -404,4 +404,48 @@ Q. What is .dockerignore?
 
 # If we are communicating with multiple containers then we can create docker network to run those multiple containers in same network with ease.
 
-# 
+## What is Docker Compose (02:30:04)
+
+# Docker compose is a configuration file to manage multiple containers running to same machine.
+
+# Previously we used to run multiple containers using Docker Network where we need to pass a lot of information in the command that is too tricky and not a efficient way to run, so in order to avoid such things we should prefer using Docker Compose.
+
+# Docker Compose useful commands
+
+# Basic operations 
+1). `docker-compose up` - Start all services defined in docker-compose.yml
+2. `docker-compose up -d` - Start services in background (detached mode)
+3. `docker-compose down` - Stop and remove all containers, networks
+4. `docker-compose start` - Start existing stopped containers
+5. `docker-compose stop` - Stop running containers without removing them
+6. `docker-compose restart` - Restart all services
+
+# Building & Images:
+- `docker-compose build` - Build/rebuild images for services
+- `docker-compose pull` - Pull latest images for all services
+
+# Cleanup:
+- `docker-compose down -v` - Stop services and remove volumes
+- `docker-compose down --rmi all` - Stop services and remove images
+
+## docker-compose with Multiple Containers (02:38:12)
+
+## Docker compose with network (02:52:44)
+
+# commands to watch list of networks available in docker :- `docker network ls`
+
+# docker-compose with volume (02:58:58)
+
+# We can add volumes with docker-compose as well to persist data
+
+## docker-compose with ports (03:03:26)
+
+# Docker Compose Summary (03:05:32)
+
+# Docker Compose is a config file that make our task of managing and running containers easy. We can get rid of repetitive commands. All the services inside the config file share same network.
+
+# Docker Compose useful commands
+--> docker-compose up/down
+--> -d detach Mode
+--> -v to remove networks/volumes upon stop
+--> --build to again build image and run

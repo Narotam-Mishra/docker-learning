@@ -1,0 +1,7 @@
+
+services:
+  mywebapp:
+    build: ./
+    ports:
+      - 7234:5173
+    container_name: 'mywebapp'
